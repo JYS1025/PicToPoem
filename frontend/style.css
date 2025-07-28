@@ -1,0 +1,196 @@
+/* --- 1. 기본 설정 및 서체 --- */
+:root {
+    --bg-primary: #f2f2f7;
+    --bg-secondary: #ffffff;
+    --fill-primary: #007aff;
+    --fill-hover: #004ecb;
+    --label-primary: #1c1c1e;
+    --label-secondary: #8e8e93;
+    --separator-color: #e5e5ea;
+    --container-shadow: rgba(60, 60, 67, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--label-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+/* --- 2. 메인 컨테이너 --- */
+.container {
+    width: 100%;
+    max-width: 520px;
+    background: var(--bg-secondary);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px var(--container-shadow);
+    text-align: center;
+}
+
+/* --- 3. 타이포그래피 --- */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--label-secondary);
+    margin-bottom: 40px; /* 충분한 하단 여백 */
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* --- 4. 폼 및 버튼 요소 --- */
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.file-upload-button {
+    background: var(--bg-primary);
+    border: 1px solid var(--separator-color);
+    padding: 14px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex; /* 아이콘과 텍스트 정렬 */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 아이콘과 텍스트 간격 */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.file-upload-button:hover {
+    background-color: #e9e9ed;
+}
+
+.file-upload-button svg { /* 아이콘 색상 */
+    color: var(--fill-primary);
+}
+
+#image-preview-container {
+    background-color: var(--bg-primary);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+#image-preview {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#submit-button {
+    background-color: var(--fill-primary);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#submit-button:hover:not(:disabled) {
+    background-color: var(--fill-hover);
+}
+
+#submit-button:disabled {
+    background-color: var(--label-secondary);
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+
+/* --- 5. 로딩 및 결과 표시 --- */
+#loading { margin-top: 32px; }
+
+.spinner {
+    border: 3px solid var(--separator-color);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border-top-color: var(--fill-primary);
+    margin: 0 auto 10px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#result-container {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--separator-color);
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+blockquote { margin: 0; } /* 기본 blockquote 마진 제거 */
+
+#result-quote {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+#result-source {
+    display: block;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--label-secondary);
+    margin-bottom: 2rem;
+}
+
+.commentary-box h2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--label-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--separator-color);
+    padding-bottom: 0.5rem;
+}
+
+.commentary-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--label-primary);
+    margin-bottom: 0;
+}
+
+.hidden { display: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 6. 반응형 디자인 --- */
+@media (max-width: 600px) {
+    body { padding: 0; }
+    .container {
+        padding: 24px;
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+    }
+}
+#image-input {
+    display: none;
+}

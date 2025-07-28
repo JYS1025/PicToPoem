@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진으로 쓰는 시</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Picture to Poetry</h1>
+        <p>사진을 올리면 어울리는 시나 소설의 한 구절을 추천해 드립니다.</p>
+        
+        <form id="upload-form">
+            <div class="file-upload-wrapper">
+                <input type="file" id="image-input" accept="image/*" required>
+                <label for="image-input" class="file-upload-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>이미지 선택</span>
+                </label>
+            </div>
+            
+            <div id="image-preview-container" class="hidden">
+                <img id="image-preview" src="#" alt="선택한 이미지 미리보기" />
+            </div>
+
+            <button type="submit" id="submit-button" class="hidden">글귀 생성하기</button>
+        </form>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>아름다운 글귀를 찾고 있어요...</p>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <blockquote id="result-quote"></blockquote>
+            <figcaption id="result-source"></figcaption>
+            <hr class="result-divider">
+            <div class="commentary-box">
+                <h2>큐레이터의 해설</h2>
+                <p id="result-commentary"></p>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

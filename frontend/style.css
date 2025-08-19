@@ -1,15 +1,27 @@
-/* --- 1. 기본 설정 및 서체 --- */
-:root {
-    --bg-primary: #f2f2f7;
-    --bg-secondary: #ffffff;
-    --fill-primary: #007aff;
-    --fill-hover: #004ecb;
-    --label-primary: #1c1c1e;
-    --label-secondary: #8e8e93;
-    --separator-color: #e5e5ea;
-    --container-shadow: rgba(60, 60, 67, 0.1);
+/* === PicToPoem CSS 스타일시트 === */
+/* 이 파일은 웹 애플리케이션의 모든 시각적 스타일을 정의합니다. */
+
+/* === 1. 웹폰트 로드 === */
+@font-face {
+    font-family: 'YESMyoungjo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESMyoungjo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
+/* === 2. CSS 변수 정의 (색상 팔레트) === */
+:root {
+    --bg-primary: #f2f2f7;        /* 메인 배경색 (연한 회색) */
+    --bg-secondary: #ffffff;       /* 보조 배경색 (흰색) */
+    --fill-primary: #007aff;       /* 주요 액센트 색상 (파란색) */
+    --fill-hover: #004ecb;         /* 호버 상태 색상 (진한 파란색) */
+    --label-primary: #1c1c1e;      /* 주요 텍스트 색상 (진한 회색) */
+    --label-secondary: #8e8e93;    /* 보조 텍스트 색상 (회색) */
+    --separator-color: #e5e5ea;    /* 구분선 색상 (연한 회색) */
+    --container-shadow: rgba(60, 60, 67, 0.1);  /* 컨테이너 그림자 */
+}
+
+/* === 3. 기본 페이지 스타일 === */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--bg-primary);
@@ -21,7 +33,7 @@ body {
     padding: 24px;
 }
 
-/* --- 2. 메인 컨테이너 --- */
+/* === 4. 메인 컨테이너 스타일 === */
 .container {
     width: 100%;
     max-width: 520px;
@@ -32,7 +44,7 @@ body {
     text-align: center;
 }
 
-/* --- 3. 타이포그래피 --- */
+/* === 5. 타이포그래피 스타일 === */
 h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -46,13 +58,14 @@ p {
     font-size: 1rem;
 }
 
-/* --- 4. 폼 및 버튼 요소 --- */
+/* === 6. 폼 및 버튼 요소 스타일 === */
 #upload-form {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
+/* 파일 업로드 버튼 스타일 */
 .file-upload-button {
     background: var(--bg-primary);
     border: 1px solid var(--separator-color);
@@ -68,26 +81,36 @@ p {
     transition: background-color 0.2s ease-in-out;
 }
 
+/* 파일 업로드 버튼 호버 효과 */
 .file-upload-button:hover {
     background-color: #e9e9ed;
 }
 
-.file-upload-button svg { /* 아이콘 색상 */
+/* 파일 업로드 버튼 내 아이콘 색상 */
+.file-upload-button svg {
     color: var(--fill-primary);
 }
 
+/* 이미지 미리보기 컨테이너 */
 #image-preview-container {
     background-color: var(--bg-primary);
     border-radius: 14px;
     overflow: hidden;
 }
 
+/* 이미지 미리보기 */
 #image-preview {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
+/* 실제 파일 입력 숨김 처리 */
+#image-input {
+    display: none;
+}
+
+/* 제출 버튼 스타일 */
 #submit-button {
     background-color: var(--fill-primary);
     color: white;
@@ -100,20 +123,24 @@ p {
     transition: background-color 0.2s ease-in-out;
 }
 
+/* 제출 버튼 호버 효과 */
 #submit-button:hover:not(:disabled) {
     background-color: var(--fill-hover);
 }
 
+/* 제출 버튼 비활성화 상태 */
 #submit-button:disabled {
     background-color: var(--label-secondary);
     opacity: 0.8;
     cursor: not-allowed;
 }
 
+/* === 7. 로딩 및 결과 표시 스타일 === */
+#loading { 
+    margin-top: 32px; 
+}
 
-/* --- 5. 로딩 및 결과 표시 --- */
-#loading { margin-top: 32px; }
-
+/* 회전하는 로딩 스피너 */
 .spinner {
     border: 3px solid var(--separator-color);
     width: 28px;
@@ -124,11 +151,13 @@ p {
     animation: spin 0.8s linear infinite;
 }
 
+/* 스피너 회전 애니메이션 */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
+/* 결과 컨테이너 */
 #result-container {
     margin-top: 32px;
     padding-top: 24px;
@@ -137,7 +166,10 @@ p {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-blockquote { margin: 0; } /* 기본 blockquote 마진 제거 */
+/* 인용구 스타일 */
+blockquote { 
+    margin: 0; /* 기본 blockquote 마진 제거 */
+}
 
 #result-quote {
     font-size: 1.15rem;
@@ -147,6 +179,7 @@ blockquote { margin: 0; } /* 기본 blockquote 마진 제거 */
     margin-bottom: 1.5rem;
 }
 
+/* 출처 정보 스타일 */
 #result-source {
     display: block;
     text-align: right;
@@ -156,6 +189,7 @@ blockquote { margin: 0; } /* 기본 blockquote 마진 제거 */
     margin-bottom: 2rem;
 }
 
+/* 큐레이터 해설 박스 */
 .commentary-box h2 {
     font-size: 0.9rem;
     font-weight: 600;
@@ -174,23 +208,52 @@ blockquote { margin: 0; } /* 기본 blockquote 마진 제거 */
     margin-bottom: 0;
 }
 
-.hidden { display: none; }
+/* 공유 버튼 스타일 */
+#share-button {
+    background-color: var(--label-secondary); /* 다른 버튼과 색상 구분 */
+    color: white;
+    padding: 16px;
+    margin-top: 24px; /* 결과 박스와의 간격 */
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%; /* 너비 꽉 채우기 */
+    transition: all 0.2s ease-in-out;
+}
 
+/* 공유 버튼 호버 효과 */
+#share-button:hover:not(:disabled) {
+    background-color: #555; /* 호버 시 더 어두운 회색 */
+}
+
+/* 공유 버튼 비활성화 상태 */
+#share-button:disabled {
+    background-color: var(--separator-color);
+    cursor: not-allowed;
+}
+
+/* === 8. 유틸리티 클래스 === */
+.hidden { 
+    display: none; 
+}
+
+/* 페이드인 애니메이션 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- 6. 반응형 디자인 --- */
+/* === 9. 반응형 디자인 === */
 @media (max-width: 600px) {
-    body { padding: 0; }
+    body { 
+        padding: 0; 
+    }
     .container {
         padding: 24px;
         border-radius: 0;
         min-height: 100vh;
         box-shadow: none;
     }
-}
-#image-input {
-    display: none;
 }

@@ -1,39 +1,62 @@
-annotated-types==0.7.0
-blinker==1.9.0
-cachetools==5.5.2
-certifi==2025.7.14
-charset-normalizer==3.4.2
-click==8.2.1
-Flask==3.1.1
-google-ai-generativelanguage==0.6.15
-google-api-core==2.25.1
-google-api-python-client==2.177.0
-google-auth==2.40.3
-google-auth-httplib2==0.2.0
-google-generativeai==0.8.5
-googleapis-common-protos==1.70.0
-grpcio==1.74.0
-grpcio-status==1.71.2
-gunicorn==23.0.0
-httplib2==0.22.0
-idna==3.10
-itsdangerous==2.2.0
-Jinja2==3.1.6
-MarkupSafe==3.0.2
-packaging==25.0
-proto-plus==1.26.1
-protobuf==5.29.5
-pyasn1==0.6.1
-pyasn1_modules==0.4.2
-pydantic==2.11.7
-pydantic_core==2.33.2
-pyparsing==3.2.3
-python-dotenv==1.1.1
-requests==2.32.4
-rsa==4.9.1
-tqdm==4.67.1
-typing-inspection==0.4.1
-typing_extensions==4.14.1
-uritemplate==4.2.0
-urllib3==2.5.0
-Werkzeug==3.1.3
+# === Python 패키지 의존성 목록 ===
+# 이 파일은 프로젝트 실행에 필요한 모든 Python 패키지와 버전을 정의합니다.
+
+# === 웹 프레임워크 및 서버 ===
+Flask==3.1.1                    # 웹 애플리케이션 프레임워크
+gunicorn==23.0.0                # 프로덕션 WSGI 서버
+Werkzeug==3.1.3                 # Flask의 의존성 (WSGI 유틸리티)
+
+# === 템플릿 엔진 ===
+Jinja2==3.1.6                   # HTML 템플릿 엔진
+MarkupSafe==3.0.2               # Jinja2의 의존성 (안전한 마크업)
+
+# === Google AI 서비스 ===
+google-generativeai==0.8.5      # Google Gemini AI API 클라이언트
+google-ai-generativelanguage==0.6.15  # Google AI 언어 모델 API
+google-api-core==2.25.1         # Google API 핵심 라이브러리
+google-api-python-client==2.177.0     # Google API Python 클라이언트
+google-auth==2.40.3             # Google 인증 라이브러리
+google-auth-httplib2==0.2.0     # Google 인증 HTTP 클라이언트
+googleapis-common-protos==1.70.0      # Google API 공통 프로토콜
+
+# === HTTP 및 네트워크 ===
+httplib2==0.22.0                # HTTP 클라이언트 라이브러리
+requests==2.32.4                # HTTP 요청 라이브러리
+urllib3==2.5.0                  # HTTP 클라이언트 (requests 의존성)
+uritemplate==4.2.0              # URI 템플릿 처리
+
+# === 데이터 처리 및 검증 ===
+pydantic==2.11.7                # 데이터 검증 및 설정 관리
+pydantic_core==2.33.2           # Pydantic 핵심 라이브러리
+annotated-types==0.7.0          # 타입 어노테이션 유틸리티
+
+# === 인증 및 보안 ===
+certifi==2025.7.14              # SSL 인증서 번들
+charset-normalizer==3.4.2       # 문자 인코딩 정규화
+idna==3.10                      # 도메인 이름 처리
+pyasn1==0.6.1                   # ASN.1 데이터 구조 처리
+pyasn1_modules==0.4.2           # ASN.1 모듈
+rsa==4.9.1                      # RSA 암호화
+
+# === 환경 변수 관리 ===
+python-dotenv==1.1.1            # .env 파일에서 환경변수 로드
+
+# === 이미지 처리 ===
+Pillow                          # 이미지 처리 라이브러리 (PIL)
+
+# === 유틸리티 ===
+blinker==1.9.0                  # 신호 및 이벤트 처리
+cachetools==5.5.2               # 캐싱 유틸리티
+click==8.2.1                    # 명령행 인터페이스
+itsdangerous==2.2.0             # 보안 데이터 서명
+packaging==25.0                 # 패키지 메타데이터 처리
+proto-plus==1.26.1              # Protocol Buffers 확장
+protobuf==5.29.5                # Protocol Buffers
+pyparsing==3.2.3                # 파싱 유틸리티
+tqdm==4.67.1                    # 진행률 표시 바
+typing-inspection==0.4.1        # 타입 검사 유틸리티
+typing_extensions==4.14.1       # 타입 힌트 확장
+
+# === gRPC 통신 ===
+grpcio==1.74.0                  # gRPC Python 구현
+grpcio-status==1.71.2           # gRPC 상태 코드
